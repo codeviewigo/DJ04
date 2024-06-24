@@ -1,0 +1,28 @@
+{% extends 'films\base.html' %}
+
+{% block title %}Список фильмов{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Список фильмов</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Отзыв</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+                <tr>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.description }}</td>
+                    <td>{{ movie.review }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_movie' %}" class="btn btn-primary">Добавить фильм</a>
+</div>
+{% endblock %}

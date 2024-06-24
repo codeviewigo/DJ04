@@ -1,0 +1,25 @@
+{% extends 'films\base.html' %}
+
+{% block title %}Добавить фильм{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Добавить фильм</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            {{ form.review.label_tag }}
+            {{ form.review }}
+        </div>
+        <button type="submit" class="btn btn-primary">Записать</button>
+    </form>
+</div>
+{% endblock %}
